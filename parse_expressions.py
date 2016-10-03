@@ -21,7 +21,8 @@ change_password = re.compile("\s*change\s+password\s+" + identifier + "\s+" + st
 #field_variable = re.compile("\s*{\s*"+identifier+"\s*=\s*"+expression+"\s*}\s*")
 set_x = re.compile("\s*set\s+" + identifier + "\s*=\s*" + "("+expression+"|"+field_variable+\
 			"|\[\]" +")")
-append_to = re.compile("\s*append\s+to\s+" + identifier + "\s+with\s+" + expression)
+append_to = re.compile("\s*append\s+to\s+" + identifier + "\s+with\s+" + "("+expression+"|"\
+			+field_variable+")")
 local_variable = re.compile("\s*local\s+" + identifier + "\s*\s*" + expression)
 for_each = re.compile("\s*foreach\s+"+identifier+"\s+in\s+"+identifier + "\s+replacewith\s+"\
 			+expression)

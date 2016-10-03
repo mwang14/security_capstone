@@ -10,5 +10,5 @@ data = raw_input()
 while True:
 	sock.sendall(data)
 	data = raw_input()
-	#received = sock.recv(1024)
-	#print received
+	received = sock.recv(1024)
+	print received

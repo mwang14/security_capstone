@@ -1,5 +1,5 @@
+#/usr/bin/python
 import SocketServer
-
 import sys
 import sqlite3
 import parse_expressions
@@ -24,6 +24,7 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
 			if not self.data:
 				break
 			parse_expressions.parse_expression(self.data)
+			self.request.sendall(str(statusCodes))
 if __name__ == "__main__":
 	HOST, PORT = "localhost", int(sys.argv[1])
 	server = SocketServer.TCPServer((HOST, PORT), MyTCPHandler)
